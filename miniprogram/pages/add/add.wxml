@@ -1,0 +1,20 @@
+<!--index.wxml-->
+<view class="container">
+     <textarea class="content" maxlength="140" placeholder="点击输入文字" bindinput="textinput" data-name="content" value="{{content}}"></textarea>
+     <view class="imgbox">
+        <view class="noimg" bindlongpress="clearimg" data-index="{{index}}" wx:for="{{imglist}}" bindtap="showimage">
+            <image src="{{item}}" mode="aspectFill" class="realimg"></image>
+         </view>
+         <view class="noimg" bindlongpress="clearvideo" data-index="{{index}}" wx:for="{{videolist}}" bindtap="showimage">
+            <video src="{{item}}" class="realimg"></video>
+         </view>
+       <view class="noimg" bindtap="add" wx:if="{{imglist.length<9 && videolist.length < 1}}">
+         <image class="addimg" src="/images/carema.png" mode="widthFix"></image>
+       </view>
+     </view>
+     <view class="inputbox" bindtap="chooselocation">
+      <image class="title" src="/images/location.png"></image>
+      <text class="inputtips">{{location||'所在位置'}}</text>
+    </view>
+    <view wx:if="{{content || imglist.length>0}}" class="backbtn btn" bindtap="release">发吧</view>
+</view>

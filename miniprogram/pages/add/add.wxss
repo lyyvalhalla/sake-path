@@ -1,0 +1,98 @@
+page{
+  background: #f1f1f1;
+  padding-bottom:50rpx
+}
+.content{
+  width:100%;
+  font-size:30rpx;
+  color:#323232;
+  background: #fff;
+  padding:30rpx;
+  height:330rpx
+}
+.btn{
+  width:90%;
+  height:90rpx;
+  font-size:30rpx;
+  text-align: center;
+  line-height: 90rpx;
+  border-radius: 90rpx;
+  margin: 0 auto;
+  margin-top:40rpx;
+}
+.backbtn{
+  background: #c04851;
+  color:#fff;
+}
+.imgbox{
+  width:100%;
+  background: #fff;
+  padding:30rpx;
+  display: flex;
+  flex-wrap: wrap
+}
+.noimg{
+  width:160rpx;
+  height:160rpx;
+  background: #fff;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-size:26rpx;
+  color:#999;
+  margin-right:20rpx;
+  border:1rpx solid rgb(214, 214, 214);
+  margin-top:20rpx
+}
+.noimg .addimg{
+  width:60rpx;
+  margin-bottom:5rpx;
+  overflow: hidden;
+}
+.noimg .realimg{
+  width:100%;
+}
+.title{
+  width:30rpx;
+  height:40rpx;
+  /* background: #ccc */
+}
+.inputbox{
+  width:100%;
+  display: flex;
+  background: #fff;
+  padding: 30rpx 30rpx;
+  font-size:30rpx;
+  align-items: center;
+  margin-top:1rpx
+}
+.inputbox input{
+  flex:1;
+  text-align: right;
+  padding-right:10rpx;
+}
+.inputoffset{
+  flex:1;
+}
+.inputtips{
+  padding-left:15rpx;
+  color:#999;
+  font-size:26rpx;
+  width:100%;
+  text-align: left;
+  line-height: 36rpx;
+}
+.moneybox{
+  width:100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size:58rpx;
+  margin-top:50rpx
+}
+.money{
+  width:60rpx;
+  height:60rpx;
+  margin-right: 10rpx
+}

@@ -1,0 +1,9 @@
+<!--pages/demo/demo.wxml-->
+<view class="navgationBar">
+    <view class="tishi">
+        <image src="/src/logo.png" class="logo"/>
+        <text class="title">一壶酒两三友</text>
+        <text class="content">需要获取你的授权才能使用完整功能</text>
+    </view>
+<button open-type="getUserInfo" bindgetuserinfo="bindGetUserInfo" class="btn">授权登录</button>
+</view>

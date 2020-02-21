@@ -1,0 +1,84 @@
+<!--index.wxml-->
+<view class="container" bindtouchmove="initbox">
+    <navigator class="addbtn" url="../add/add" wx:if="{{activearr[0]}}">
+      <image src="/images/add.png" mode="widthFix"/>
+    </navigator>
+    <navigator class="invitebtn" url="../friends/friends" wx:if="{{activearr[1]}}">
+      邀友
+    </navigator>
+    <navigator class="settingbtn" url="../user/user" wx:if="{{activearr[1]}}">
+      改名儿
+    </navigator>
+   <view class="tab">
+     <view class="tab-item {{activearr[0]}}" bindtap="switchtab" data-index="0">众乐乐</view>
+     <view class="tab-item {{activearr[1]}}" bindtap="switchtab" data-index="1">独乐乐</view>
+   </view>
+   <view class="list">
+     <view class="list-item" wx:for="{{list}}" wx:for-key="index" wx:for-index="index">
+       <!-- 头像 -->
+        <view class="avatar-box">
+          <view class="time-line">
+            {{item.createTime}}
+          </view>
+          <view class="avatar-container">
+              <image src="{{item.user.avatar}}" class="avatar" mode="aspectFill" />
+          </view>
+          <view class="nick-name">{{item.user.nickname}}</view>
+        </view>
+        <!-- 内容 -->
+        <view class="content-box">
+          <text class="content-text" wx:if="{{item.content}}">
+            {{item.content}}
+          </text>
+          <view class="image-wrap" wx:if="{{item.imglist.length>0}}">
+            <image wx:for="{{item.imglist}}" bindtap="showimage" wx:for-item="inner" src="{{inner}}" mode="aspectFill" wx:for-index="innerindex" data-index="{{index}}" data-inner="{{innerindex}}"></image>
+          </view>
+          <view class="video-wrap" wx:if="{{item.video.length>0}}">
+            <image src="{{item.cover}}" class="video-cover"></image>
+            <image src="../../images/play.png" class="video-play" bindtap="showvideo" data-url="{{item.video[0]}}"></image>
+          </view>
+          <view class="location" wx:if="{{item.location}}">
+          {{item.location}}
+          </view>
+          <view class="ratebtn" bindtap="emojiboxshow" data-index="{{index}}">
+           <image src="../../images/like.png" />
+          </view>
+          <view class="rate-wrap" wx:if="{{item.like.length>0 || item.rate.length>0}}">
+            <view class="emoji-wrap" wx:if="{{item.like.length>0}}">
+              <view class="emoji-item" wx:for="{{item.like}}" wx:for-item="inner">
+                <image class="avatar-item" src="{{inner.user.avatar}}"></image>
+                <image class="emoji-img" src="../../images/e{{inner.index+1}}.png"></image>
+              </view>
+            </view>
+            <view class="rate-area">
+              <view class="rate-item" wx:for="{{item.rate}}" wx:for-item="inner">
+                <image class="avatar-img" src="{{inner.user.avatar}}"></image>
+                 <view class="rate-content">
+                   <view class="rate-text">
+                     <text class="name">{{inner.user.nickname}}:</text> {{inner.content}}
+                   </view>
+                   <view class="time-location">
+                     {{inner.createTime}}{{location}}
+                   </view>
+                 </view>
+              </view>
+            </view>
+          </view>
+        </view>
+     </view>
+   </view>
+   <view class="emoji-init" wx:if="{{showemojibox}}">
+      <view class="emoji-init-wrap">
+        <image src="../../images/e{{index+1}}.png" wx:for="{{6}}" catchtap="emojirate" data-index="{{index}}"></image>
+      </view>
+      <view class="to-text" bindtap="rateshow">
+        写评论
+      </view>
+   </view>
+   <view class="inputbox" wx:if="{{showRate}}">
+      <input type="text" class="rate" placeholder="评论:" confirm-type="send" cursor-spacing="10" focus bindconfirm="sendrate" value="{{ratetext}}"/>
+    </view>
+    <view class="video-box" wx:if="{{showvideo}}" bindtap="hidevideo">
+     <video src="{{currentUrl}}" autoplay="true" catchtap="nothing"></video>
+    </view>
+</view>

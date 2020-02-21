@@ -1,0 +1,54 @@
+<!--index.wxml-->
+<view class="container">
+   <view class="nothing" wx:if="{{newlist.length==0 && name.length>0}}">
+     <text>暂无信息</text>
+   </view>
+   <view class="offset"></view>
+   <view class="search-box">
+   <view class="input-box">
+     <icon type="search" size="18" color="#999"/>
+     <input type="text" placeholder="搜索新好友" bindinput="searchname" confirm-type="search" value="{{name}}"/>
+     <icon type="cancel" size="24" color="#999" wx:if="{{name}}" bindtap="nosearch"/>
+   </view>
+   <!-- <image bindtap="setting" class="setting" src="../../images/setting.png"/> -->
+  </view>
+  <view class="listitem" wx:if="{{name.length == 0}}">
+      <button class="infobox" open-type="share">
+        <image class="wxavatar" src="../../images/weixin.png"></image>
+        <view class="name">
+           <text class="title oneline-only">邀请微信好友</text>
+       </view>
+      </button>
+  </view>
+  <view class="friend-num" wx:if="{{name.length == 0}}">
+    <text>好友列表</text>
+    <text>{{list.length}}/50</text>
+  </view>
+  <block wx:if="{{name.length == 0}}">
+   <view class="listitem" wx:for="{{list}}" >
+     <view class="infobox">
+       <image class="avatar" src="{{item.avatar}}"></image>
+       <view class="name">
+          <text class="title oneline-only">{{item.nickname}}</text>
+      </view>
+     </view>
+     <view class="rightpart">
+          <view class="clearbtn" bindtap="clear" data-index="{{index}}">删除</view>
+      </view>
+   </view>
+  </block>
+  <block wx:else>
+   <view class="listitem" wx:for="{{newlist}}" >
+      <view class="infobox">
+        <image class="avatar" src="{{item.avatar}}"></image>
+        <view class="name">
+           <text class="title oneline-only">{{item.nickname}}</text>
+       </view>
+      </view>
+      <view class="rightpart">
+          <view class="clearbtn exbtn" bindtap="addfriend" data-index="{{index}}" wx:if="{{item.status == 0}}">加为好友</view>
+          <view class="clearbtn" data-index="{{index}}" wx:if="{{item.status == 1}}">已添加</view>
+         </view>
+    </view>
+  </block>
+</view>

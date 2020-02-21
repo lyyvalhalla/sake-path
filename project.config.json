@@ -1,0 +1,66 @@
+{
+	"miniprogramRoot": "miniprogram/",
+	"cloudfunctionRoot": "cloudfunctions/",
+	"setting": {
+		"urlCheck": true,
+		"es6": true,
+		"postcss": true,
+		"minified": true,
+		"newFeature": true
+	},
+	"appid": "wxb6692e97c78ee626",
+	"projectname": "momet",
+	"libVersion": "2.2.5",
+	"condition": {
+		"search": {
+			"current": -1,
+			"list": []
+		},
+		"conversation": {
+			"current": -1,
+			"list": []
+		},
+		"plugin": {
+			"current": -1,
+			"list": []
+		},
+		"game": {
+			"list": []
+		},
+		"miniprogram": {
+			"current": 0,
+			"list": [
+				{
+					"id": 0,
+					"name": "index",
+					"pathName": "pages/index/index",
+					"query": "id=XBdSx8DR1TiN55N3"
+				},
+				{
+					"id": -1,
+					"name": "user",
+					"pathName": "pages/user/user",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "edit",
+					"pathName": "pages/edit/edit",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "friends",
+					"pathName": "pages/friends/friends",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "addf",
+					"pathName": "pages/addFunction/addFunction",
+					"query": ""
+				}
+			]
+		}
+	}
+}

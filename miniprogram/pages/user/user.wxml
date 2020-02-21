@@ -1,0 +1,13 @@
+<view class="navigationHeight"></view>
+<view class='header_border'></view>
+<view class='currency edit_icon' bindtap='upload_type'>
+  <view class='edit_text'>头像</view>
+  <image class='icon' src='{{userInfo.avatar}}' mode="aspectFill"></image>
+  <image class='next_icon' src='/images/arrow.png'></image>
+</view>
+<view class='currency edit_nickname' data-name='{{userInfo.nickname}}' catchtap='edit_nickname'>
+  <view class='edit_text'>昵称</view>
+  <view class='edit_item'>{{userInfo.nickname}}</view>
+  <image class='next_icon' src='/images/arrow.png'></image>
+</view>
+

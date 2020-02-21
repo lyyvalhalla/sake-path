@@ -1,0 +1,21 @@
+page{
+  background: #f4f4f4
+}
+input{
+  width: 100%;
+  background: #fff;
+  font-size:32rpx;
+  line-height: 100rpx;
+  height:100rpx;
+  padding: 20rpx;
+  border-bottom:2rpx solid #eee
+}
+button{
+  height: 90rpx;
+  border-radius: 90rpx;
+  background: #edad9a;
+  color:#fff;
+  text-align: center;
+  width:90%;
+  margin-top:60rpx
+}

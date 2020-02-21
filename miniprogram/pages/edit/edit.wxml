@@ -1,0 +1,4 @@
+<view class="container">
+  <input type="text" placeholder="请输入昵称" focus value="{{name}}" bindinput="nameinput"/>
+  <button bindtap="save">确定</button>
+</view>

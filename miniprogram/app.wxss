@@ -1,0 +1,33 @@
+/**app.wxss**/
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-sizing: border-box;
+  font-size:30rpx;
+} 
+view, text, navigator, textarea, input{
+  box-sizing: border-box
+}
+.tips{
+  width:100%;
+  display: inline-block;
+  padding:40rpx 0;
+  color:#999;
+  font-size:28rpx;
+  text-align: center
+}
+.oneline-only{
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  display: inline-block;
+}
+.twoline-only{
+  text-overflow: -o-ellipsis-lastline;  
+  overflow: hidden;  
+  text-overflow: ellipsis;  
+  display: -webkit-box;  
+  -webkit-line-clamp: 2;  
+  -webkit-box-orient: vertical; 
+}

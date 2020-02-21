@@ -1,0 +1,298 @@
+  .container{
+    padding-top:80rpx;
+  }
+  .tab{
+    color:#888;
+    width: 100%;
+    display: flex;
+    position: fixed;
+    top:0;
+    left: 0;
+    height:80rpx;
+    background: #fff;
+    z-index: 99;
+  }
+  image{
+    background: #ccc
+  }
+  .tab .tab-item{
+    flex:1;
+    text-align: center;
+    padding:15rpx;
+    font-size:30rpx
+  }
+  .tab .tab-item.active{
+    color:#475164;
+    border-bottom:8rpx solid #475164
+  }
+  .list {
+    width:100%;
+    padding: 0rpx 30rpx 30rpx 0;
+  }
+  .list .list-item {
+    display: flex;
+  }
+  .list .list-item .avatar-box{
+    width:150rpx;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-right: 1rpx solid #ccc;
+    padding-top:20rpx
+  }
+  .list .list-item .avatar-box .time-line{
+    font-size:16rpx;
+    padding-left: 5px;
+    padding-right:5px;
+    color:#999
+  }
+  .list .list-item .avatar-box .nick-name{
+    font-size:20rpx;
+    color:#323232;
+    text-align: center;
+    padding:5rpx 10rpx
+  }
+  .list .list-item .avatar-box .avatar{
+    width:100%;
+    height:100%;
+    background: #ccc;
+    border-radius: 50%;
+  }
+  .list .list-item .avatar-box .avatar-container{
+    width:90rpx;
+    height:90rpx;
+    /* margin-top:20rpx; */
+    position: relative;
+  }
+  .list .list-item .avatar-box .avatar-container:after{
+    content: '';
+    width:21rpx;
+    height:21rpx;
+    background: #c04851;
+    border-radius: 50%;
+    position: absolute;
+    right: -39rpx;
+    top:35rpx;
+  }
+  .list .list-item .content-box{
+    flex:1;
+    padding-top:20rpx;
+    padding-left:30rpx
+  }
+  .list  .list-item .content-box .image-wrap{
+    display: flex;
+    flex-wrap:wrap
+  }
+  .list  .list-item .content-box .video-wrap{
+    display: flex;
+    flex-wrap:wrap;
+    position: relative;
+  }
+  .list  .list-item .content-box .image-wrap image{
+    width:150rpx;
+    height:150rpx;
+    margin-right:15rpx;
+    margin-top:15rpx;
+    background: #ccc
+  }
+  .list  .list-item .content-box .video-wrap .video-cover{
+    width:500rpx;
+    height:300rpx;
+    margin-right:15rpx;
+    margin-top:15rpx;
+    background: #323232
+  }
+  .list  .list-item .content-box .video-wrap .video-play{
+    width:500rpx;
+    height:300rpx;
+    margin-right:15rpx;
+    margin-top:15rpx;
+    position: absolute;
+    top:0;
+    left: 0;
+    z-index:3;
+    background: transparent
+  }
+  .list  .list-item .content-box .rate-wrap {
+    margin-top:20rpx;
+    width:100%;
+    background: #f4f4f4;
+    padding:15rpx 0rpx 15rpx 20rpx;
+  }
+  .list  .list-item .content-box .rate-wrap .emoji-wrap{
+    display: flex;
+    flex-wrap: wrap
+  }
+  .list  .list-item .content-box .rate-wrap .emoji-wrap .emoji-item{
+    position: relative;
+    margin-right:15rpx;
+    margin-top:15rpx;
+    width:60rpx;
+    height:60rpx;
+  }
+  .list  .list-item .content-box .rate-wrap .emoji-wrap .emoji-item .avatar-item{
+    border-radius: 50%;
+    width: 60rpx;
+    height:60rpx;
+  }
+  .list  .list-item .content-box .rate-wrap .emoji-wrap .emoji-item .emoji-img{
+    position: absolute;
+    width:35rpx;
+    height:35rpx;
+    border-radius: 50%;
+    bottom:0;
+    right:-10rpx
+  }
+  .list  .list-item .content-box .rate-wrap .rate-area {
+    padding-right: 15rpx;
+    margin-top:15rpx;
+  }
+  .list  .list-item .content-box .rate-wrap .rate-area .rate-item{
+    display: flex;
+    padding:15rpx 0;
+    border-top:1rpx solid rgb(209, 208, 208)
+  }
+  .list  .list-item .content-box .rate-wrap .rate-area .rate-item .avatar-img{
+    width: 75rpx;
+    height:75rpx;
+    border-radius: 50%;
+    margin-right:20rpx
+  }
+  .list  .list-item .content-box .rate-wrap .rate-area .rate-item .rate-content{
+    flex:1;
+  }
+  .list  .list-item .content-box .rate-wrap .rate-area .rate-item .rate-text{
+    color: #323232;
+    font-size:28rpx;
+  }
+  .list  .list-item .content-box .rate-wrap .rate-area .rate-item .name{
+    color: #000;
+  }
+  .list  .list-item .content-box .rate-wrap .rate-area .rate-item .time-location{
+    font-size:24rpx;
+    color:#888
+  }
+  .invitebtn{
+    color:white;
+    width:120rpx;
+    height:120rpx;
+    position: fixed;
+    bottom:30rpx;
+    right:240rpx;
+    line-height: 120rpx;
+    background: #475164;
+    text-align: center;
+    font-size:30rpx;
+    border-radius: 50%;
+    z-index:999;
+  }
+  .invitebtn:hover {
+    background: #c04851;
+  }
+  .settingbtn{
+    color:white;
+    width:120rpx;
+    height:120rpx;
+    position: fixed;
+    bottom:30rpx;
+    left:240rpx;
+    line-height: 120rpx;
+    background: #475164;
+    text-align: center;
+    font-size:30rpx;
+    border-radius: 50%;
+    z-index:999
+  }
+  .settingbtn:hover{
+    background: #c04851;
+  }
+  .addbtn{
+    width:120rpx;
+    height:120rpx;
+    position: fixed;
+    bottom:60rpx;
+    right:60rpx;
+    z-index:99
+  }
+  .addbtn image{
+    width:100%;
+    background: transparent
+  }
+  .ratebtn{
+    width:100%;
+    display: flex;
+    justify-content: flex-end;
+  }
+  .ratebtn image{
+    width:30rpx;
+    height:30rpx;
+    background: #fff
+  }
+  .emoji-init{
+    width: 80%;
+    height:300rpx;
+    background:#fff;
+    position: fixed;
+    left: 10%;
+    top:300rpx;
+    display: flex;
+    align-items: center;
+    border:1rpx solid #888;
+    border-radius: 20rpx;
+    z-index:999
+  }
+  .emoji-init-wrap {
+    display: flex;
+    flex-wrap:wrap;
+    padding:30rpx;
+    flex: 1
+  }
+  .emoji-init-wrap image{
+    width:60rpx;
+    height:60rpx;
+    margin: 20rpx 30rpx;
+    background: #fff
+  }
+  .to-text{
+    width:140rpx;
+  }
+  .inputbox{
+    width:100%;
+    position: fixed;
+    bottom:0rpx;
+    left:0rpx;
+    background: #fafafa;
+    padding:10rpx 30rpx;
+    border-top:1rpx solid #e6e4e4
+  }
+  .rate{
+    background: #fff;
+    width:100%;
+    font-size:30rpx;
+    line-height: 60rpx;
+    border: 1px solid #E0E0E0;
+    padding:10rpx;
+    height:80rpx;
+    border-radius: 5rpx
+  }
+  .location {
+    font-size:24rpx;
+    color:#888;
+    margin-top:15rpx;
+  }
+  .video-box{
+    position: fixed;
+    top:0;
+    left:0;
+    right:0;
+    bottom: 0;
+    background: #000;
+    z-index:999;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+  .video-box video{
+    width:100%;
+  }

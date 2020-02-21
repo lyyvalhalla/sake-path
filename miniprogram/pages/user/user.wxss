@@ -1,0 +1,97 @@
+/* pages/user_edit/user_edit.wxss */
+page{
+  background: #e5e5e5;
+}
+.header_border{
+  width: 100%;
+  height: 2rpx;
+  background: #e5e5e5;
+  position: fixed;
+  top: 0;
+  left: 0;
+}
+.currency{
+  padding: 42rpx 45rpx 30rpx 38rpx;
+  display: flex;  
+  align-items: center;
+  background: #fff;
+  border-bottom: 2rpx solid #e5e5e5;
+}
+.edit_icon{
+  padding-top: 24rpx;
+  padding-bottom: 24rpx;
+}
+.currency .edit_text{
+  font-family: PingFangSC-Regular;
+  font-size: 28rpx;
+  color: #4A4A4A;
+  line-height: 36rpx;
+  flex: 1;
+}
+.currency .icon{
+  width: 108rpx;
+  height: 108rpx;
+  border-radius: 50%;
+}
+.currency .next_icon{
+  margin-left: 26rpx;
+  width: 26rpx;
+  height: 26rpx;
+}
+.currency .next_icon2{
+  opacity: 0;
+}
+
+
+.currency .uid{
+  font-family: PingFangSC-Regular;
+  font-size: 28rpx;
+  color: #9B9B9B;
+  letter-spacing: 1rpx;
+  line-height: 36rpx;
+}
+.currency .edit_item{
+  width: 400rpx;
+  font-family: PingFangSC-Regular;
+  font-size: 28rpx;
+  color: #9B9B9B;
+  letter-spacing: 0.5px;
+  text-align: right;
+  text-overflow: ellipsis;
+}
+
+
+
+/* 上传图片 */
+.upload_icon{
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+}
+.upload_icon .upload_mark{
+  background: rgba(0, 0, 0, 0.4);
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+}
+.upload_icon .upload_type{
+  background: #fff;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100vw;
+  text-align: center;
+  font-family: PingFangSC-Medium;
+  font-size: 32rpx;
+  color: #77A37C;
+  letter-spacing: 2.32px;
+  line-height: 40rpx;
+}
+.upload_icon .upload_type .upload_item{
+  padding: 36rpx 0;
+  border-bottom: 2rpx solid #e5e5e5;
+}
