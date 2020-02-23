@@ -31,3 +31,8 @@ view, text, navigator, textarea, input{
   -webkit-line-clamp: 2;  
   -webkit-box-orient: vertical; 
 }
+:root {
+  --whale-grey: #475164;
+  --river-red:#a7535a;
+  --jade-red:#c04851;
+}

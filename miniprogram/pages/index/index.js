@@ -133,6 +133,20 @@ Page({
   },
   getList (index) {
     let that = this
+    wx.getSetting({
+      success(res) {
+        console.log("关于授权")
+        console.log(res.authSetting["scope.userInfo"])
+        if (res.authSetting["scope.userInfo"]) {
+          wx.authorize({
+            scope: 'scope.userLocation',
+            success() {
+              console.log("汪汪汪？？？？？")
+            }
+          })
+        }
+      }
+    })
     wx.showLoading({
       title: '加载中'
     })

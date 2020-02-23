@@ -11,6 +11,8 @@
 	"appid": "wxb6692e97c78ee626",
 	"projectname": "momet",
 	"libVersion": "2.2.5",
+	"simulatorType": "wechat",
+	"simulatorPluginLibVersion": {},
 	"condition": {
 		"search": {
 			"current": -1,
