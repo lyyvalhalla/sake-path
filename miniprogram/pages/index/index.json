@@ -1,4 +1,5 @@
 {
   "navigationBarTitleText": "一壶酒 两三友",
-  "enablePullDownRefresh": true
+  "enablePullDownRefresh": true,
+  "onReachBottomDistance": 50
 }

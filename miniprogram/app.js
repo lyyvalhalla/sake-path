@@ -1,6 +1,11 @@
 var utils = require('/utils/util.js')
 
 App({
+  globalData: {
+    openid: '',
+    myid: '',
+    userInfo: ''
+  },
   formatMsgTime(time){
     return utils.formatMsgTime(time)
   },
@@ -15,69 +20,73 @@ App({
       })
     }
     let that = this
-        wx.getSetting({
-          success: res => {
-            if (!res.authSetting['scope.userInfo']) {
-              wx.reLaunch({
-                url: `/pages/auth/auth?page=${e.path}&query=${JSON.stringify(e.query)}`
-              })
-            } else {
-              wx.getUserInfo({
-                success: res => {
-                  // 可以将 res 发送给后台解码出 unionId
-                  wx.cloud.callFunction({
-                    name: 'login',
-                    data: {},
-                    success: resp => {
-                      that.globalData.openid = resp.result.openid
-                      that.login({
-                        nickname: res.userInfo.nickName,
-                        avatar: res.userInfo.avatarUrl
-                      })
-                    },
-                    fail: err => {
-                      
-                    }
+    wx.getSetting({
+      success: res => {
+        if (!res.authSetting['scope.userInfo']) {
+          wx.reLaunch({
+            url: `/pages/auth/auth?page=${e.path}&query=${JSON.stringify(e.query)}`
+          })
+        } else {
+          wx.getUserInfo({
+            success: res => {
+              // 可以将 res 发送给后台解码出 unionId
+              wx.cloud.callFunction({
+                name: 'login',
+                data: {},
+                success: resp => {
+                  that.globalData.openid = resp.result.openid
+                  that.login({
+                    nickname: res.userInfo.nickName,
+                    avatar: res.userInfo.avatarUrl
                   })
-    
+                },
+                fail: err => {
+                  
                 }
               })
-              
+
             }
-          }
-    })
-},
-login (userInfo) {
-  let that = this
-  const db = wx.cloud.database({
-    env: 'dev-42b7f4'
-  })
-  db.collection('myuser').where({
-    _openid: that.globalData.openid
-  }).get({
-    success (res) {
-      console.log(res)
-      if (res.data.length == 0) {
-        db.collection('myuser').add({
-          data: {
-            avatar: userInfo.avatar,
-            nickname: userInfo.nickname
-          }
-        }).then(res => {
-          that.globalData.myid = res._id
-          wx.setStorageSync('myid', res._id)
-        })
-      } else {
-        that.globalData.userInfo = res.data[0]
-        that.globalData.myid = res.data[0]._id
-        wx.setStorageSync('myid', res.data[0]._id)
+          })
+          
+        }
       }
-    }
-  })
-},
-  globalData: {
-    openid: '',
-    myid: '',
-    userInfo: ''
-  }
+    })
+  },
+  login (userInfo) {
+    let that = this
+    const db = wx.cloud.database({
+      env: 'dev-42b7f4'
+    })
+    db.collection('myuser').where({
+      _openid: that.globalData.openid
+    }).get({
+      success (res) {
+        //设置全局变量
+        that.globalData.currentUser = res.data[0].nickname;
+        console.log("所以" + that.globalData.currentUser);
+        //由于这里是网络请求，可能会在 Page.onLoad 之后才返回  所以此处加入 callback 以防止这种情况
+        if (that.currentUserCallback) {
+          that.currentUserCallback(res.data[0].nickname);
+        }
+
+
+        if (res.data.length == 0) {
+          db.collection('myuser').add({
+            data: {
+              avatar: userInfo.avatar,
+              nickname: userInfo.nickname
+            }
+          }).then(res => {
+            that.globalData.myid = res._id
+            wx.setStorageSync('myid', res._id)
+          })
+        } else {
+          that.globalData.userInfo = res.data[0]
+          that.globalData.myid = res.data[0]._id
+          wx.setStorageSync('myid', res.data[0]._id)
+        }
+      }
+    })
+  },
+
 })

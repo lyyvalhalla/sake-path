@@ -1,18 +1,19 @@
 const app = getApp();
-const db = wx.cloud.database()
-const _ = db.command
+const db = wx.cloud.database();
+const _ = db.command;
+
 Page({
   data: {
     list: [],
-     activearr: ['active', ''],
-     showRate: false,
-     showemojibox: false,
-     showvideo: false
+    activearr: ['active', ''],
+    showRate: false,
+    showemojibox: false,
+    showvideo: false
   },
   initbox () {
     this.setData({
       showRate: false,
-     showemojibox: false
+      showemojibox: false,
     })
   },
   showvideo (e) {
@@ -31,6 +32,40 @@ Page({
   nothing() {
     return
   },
+  removeitem(e) { //删除帖子
+    console.log("hiahiahiahiahiahiahiahiahiahiahiahia")
+    let that = this
+    let index = e.currentTarget.dataset.index
+    let posts = that.data.list;
+    let postid = '';
+    posts.forEach(function(data, i) {
+      if (i === index) {
+        postid = data._id;
+      }
+    })
+    db.collection("moments").doc(postid).remove({
+      success: res => {
+        wx.showToast({
+          title: '删除成功',
+          duration: 2000,     
+        })
+        wx.startPullDownRefresh()
+       
+      },
+      fail: err => {
+        wx.showToast({
+          icon: 'none',
+          title: '删除失败',
+        })
+        console.error('[数据库] [删除记录] 失败：', err)
+      }
+    })
+
+  },
+  // onPullDownRefresh() {
+  //   wx.stopPullDownRefresh()
+  // },
+
   emojirate (e) {
     let index = e.currentTarget.dataset.index
     let avatar = app.globalData.userInfo.avatar
@@ -135,13 +170,11 @@ Page({
     let that = this
     wx.getSetting({
       success(res) {
-        console.log("关于授权")
-        console.log(res.authSetting["scope.userInfo"])
-        if (res.authSetting["scope.userInfo"]) {
+        if (!res.authSetting["scope.userInfo"]) {
           wx.authorize({
             scope: 'scope.userLocation',
             success() {
-              console.log("汪汪汪？？？？？")
+              console.log("授权位置成功")
             }
           })
         }
@@ -161,6 +194,10 @@ Page({
           
           that.setData({
             list: res.result.data.map(x=>{
+              // console.log("让我康康");
+              // console.log(app.globalData.userInfo.nickname)
+              // console.log(this.currentUser);
+              // console.log(x);
               x.createTime = app.formatMsgTime(x.createTime)
               if(x.rate) {
                 x.rate.forEach(item => {
@@ -204,25 +241,41 @@ Page({
     }
     
   },
+  addfriend(id) {
+    wx.cloud.callFunction({
+      name: 'addfriend',
+      data: {
+        id,
+        myid: wx.getStorageSync('myid')
+      },
+      success: res => {
+      },
+      fail: err => {
+
+      }
+    })
+  },
   onShow () {
     let index = this.data.activearr.indexOf('active')
     this.getList(index+1)
   },
-  addfriend (id) {
-   wx.cloud.callFunction({
-    name: 'addfriend',
-    data: {
-      id,
-      myid: wx.getStorageSync('myid')
-    },
-    success: res => {
-    },
-    fail: err => {
-      
-    }
-  })
-  },
   onLoad (options) {
+    //判断是否获取到动态设置的globalData
+    if (app.globalData.currentUser && app.globalData.currentUser != '') {
+      this.setData({
+        currentUser: app.globalData.currentUser
+      });
+    } else {
+      // 声明回调函数获取app.js onLaunch中接口调用成功后设置的globalData数据
+      app.currentUserCallback = currentUser => {
+        if (currentUser != '') {
+          this.setData({
+            currentUser: app.globalData.currentUser
+          });
+        }
+      }
+    }
+
     if(options.id){
        this.addfriend(options.id)
     }

@@ -218,16 +218,40 @@
     width:100%;
     background: transparent
   }
-  .ratebtn{
-    width:100%;
+  .actionbtn {
+    width: 100%;
     display: flex;
     justify-content: flex-end;
   }
-  .ratebtn image{
+  .deletebtn{
+    /* width:50%;
+    display: flex;
+    justify-content: flex-start; */
+    width:25rpx;
+    height:25rpx;
+    background: #fff;
+    margin:15rpx;
+  }
+  /* .deletebtn image{
+    width:25rpx;
+    height:25rpx;
+    background: #fff;
+    margin-top:15rpx;
+  } */
+  .ratebtn{
+    /* width:100%;
+    display: flex;
+    justify-content: flex-end; */
+    width:30rpx;
+    height:30rpx;
+    background: #fff;
+    margin:15rpx;
+  }
+  /* .ratebtn image{
     width:30rpx;
     height:30rpx;
     background: #fff
-  }
+  } */
   .emoji-init{
     width: 80%;
     height:300rpx;

@@ -19,6 +19,7 @@
         <view class="avatar-box">
           <view class="time-line">
             {{item.createTime}}
+            <!-- {{item}} -->
           </view>
           <view class="avatar-container">
               <image src="{{item.user.avatar}}" class="avatar" mode="aspectFill" />
@@ -38,11 +39,15 @@
             <image src="../../images/play.png" class="video-play" bindtap="showvideo" data-url="{{item.video[0]}}"></image>
           </view>
           <view class="location" wx:if="{{item.location}}">
-          {{item.location}}
+            {{item.location}}
           </view>
-          <view class="ratebtn" bindtap="emojiboxshow" data-index="{{index}}">
-           <image src="../../images/like.png" />
+          <view class="actionbtn">
+            <image class="deletebtn" bindtap="removeitem" data-index="{{index}}"  wx:if="{{item.user.nickname === currentUser}}" src="../../images/clear.png" />
+            <image class="ratebtn" bindtap="emojiboxshow" data-index="{{index}}" src="../../images/like.png" />
           </view>
+
+
+
           <view class="rate-wrap" wx:if="{{item.like.length>0 || item.rate.length>0}}">
             <view class="emoji-wrap" wx:if="{{item.like.length>0}}">
               <view class="emoji-item" wx:for="{{item.like}}" wx:for-item="inner">
